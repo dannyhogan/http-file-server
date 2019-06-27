@@ -14,7 +14,7 @@ describe('application routes', () => {
     return request(app)
       .get('/test.html')
       .then(res => {
-        expect(res.text).toEqual(expect.stringContaining('Page not found.'))
+        expect(res.text).toEqual(expect.stringContaining('not found.'))
         expect(res.statusCode).toEqual(404);
       });
   });
