@@ -9,4 +9,13 @@ describe('application routes', () => {
         expect(res.text).toEqual(expect.stringContaining('Index'));
       });
   });
+
+  it('returns 404 not found if path doesnt exist', () => {
+    return request(app)
+      .get('/test.html')
+      .then(res => {
+        expect(res.text).toEqual(expect.stringContaining('Page not found.'))
+        expect(res.statusCode).toEqual(404);
+      });
+  });
 });
